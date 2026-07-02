@@ -267,10 +267,8 @@ Special thanks to **Hritvika Chandra** for collaborating on the project. This re
 
 ---
 
-# 📄 License
+# License
 
 Licensed under the Apache License 2.0.
 
 ---
-
-## ⭐ If you found this project interesting, consider starring the repository!
