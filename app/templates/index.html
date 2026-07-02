@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="charset" content="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AI news compiler for techies" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              quantumPurple: "#3b1a10",
+              darkPurple: "#3E1B6A",
+              goldenYellow: "#CC9933",
+              quantumBlack: "#0D0D0D",
+              bgBeige: "#F5F5DC",
+              cardGray: "#FFFFFF",
+              gradientStart: "#d1a8ff",
+              gradientEnd: "#000000",
+            },
+          },
+        },
+      };
+    </script>
+    <title>QuantumFeed</title>
+  </head>
+  <body
+    class="bg-gradient-to-r from-blue-500 via-teal-500 to-pink-500 text-purple-100 min-h-screen font-sans"
+  >
+    <header class="bg-darkPurple py-6 shadow-lg">
+      <div class="container mx-auto px-6 flex justify-center items-center">
+        <h1
+          class="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto"
+        >
+          QuantumFeed
+        </h1>
+        <!-- <span class="text-sm text-gray-400"
+          >AI-curated tech & science news</span
+        > -->
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-10">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-semibold">Latest Articles</h2>
+        <a
+          href="/refresh"
+          class="bg-quantumPurple text-white px-4 py-2 rounded-lg shadow-md hover:bg-purple-700"
+        >
+          Refresh Articles
+        </a>
+      </div>
+
+      {% if articles %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for article in articles %}
+        <div class="bg-cardGray p-6 rounded-lg shadow-md">
+          <p class="text-sm text-gray-500 mb-2">{{ article.published_date }}</p>
+          <h3 class="text-xl font-bold text-quantumPurple">
+            {{ article.title }}
+          </h3>
+          <p class="text-gray-600">{{ article.summary }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="text-gray-400">No articles available yet.</p>
+      {% endif %}
+    </main>
+
+    <footer
+      class="text-center text-gray-500 text-sm py-6 border-t border-gray-700 mt-10"
+    >
+      &copy; {{ year }} QuantumFeed. Powered by AI.
+    </footer>
+  </body>
+</html>
